@@ -1,0 +1,112 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .join-us {
+            background-color: variables.$color-black;
+            .join-us-video-wrapper {
+                position: relative;
+                background: url("/img/joinUsBack.jpg") center/cover no-repeat variables.$color-almost-black;
+                padding: 150px 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .join-us-video {
+                    width: 100%;
+                    max-width: 960px;
+                    height: auto;
+                }
+                .join-us-video-play-button {
+                    position: absolute;
+                    //zentrierung
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    width: 200px;
+                    aspect-ratio: 1;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: transparent;
+                    @extend %border-radius-round;
+                    border: variables.$border;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    color: variables.$color-white;
+                    column-gap: 4px;
+                    transition-duration: variables.$transition-duration;
+                    &::after {
+                        content: "";
+                        width: 26px;
+                        aspect-ratio: 1;
+                        background: url("/img/icons/svg.qodef-svg--button-arrow.svg") center/contain no-repeat;
+                        transition-duration: variables.$transition-duration;
+                    }
+                    &:hover::after {
+                        filter: invert(1);
+                    }
+                    &:hover {
+                        color: variables.$color-black;
+                        background-color: variables.$color-light-gray;
+                    }
+                }
+            }
+            .join-us-body {
+                padding-bottom: 150px;
+                .join-us-title {
+                    position: relative;
+                    font-size: clamp(64px, 9.37vw, 180px);
+                    line-height: 1;
+                    text-align: center;
+                    margin-top: -0.4em;
+                    &:not(:last-child) {
+                        margin-bottom: 130px;
+                    }
+                    &::after {
+                        content: "";
+                        height: 0.7em;
+                        aspect-ratio: 1;
+                        display: inline-block;
+                        background: url("/img/icons/h1-rev-icon-1.png.svg") center/contain no-repeat;
+                        scale: 1 -1;
+                        margin-left: 0.14em;
+                    }
+                }
+                .join-us-form {
+                    .join-us-form-header {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        row-gap: 7px;
+                        &:not(:last-child) {
+                            margin-bottom: 52px;
+                        }
+
+                        .centered {
+                            &::after {
+                                left: 50%;
+                                translate: -50% 0;
+                                top: -0.55em;
+                            }
+                        }
+                        .backdrop-title {
+                            &::before {
+                                width: 34px;
+                                height: 40px;
+                            }
+                        }
+                    }
+                    .join-us-form-body {
+                        display: flex;
+                        justify-content: center;
+                        column-gap: 20px;
+                        .join-us-form-input {
+                            max-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

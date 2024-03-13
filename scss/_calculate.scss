@@ -1,0 +1,136 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .calculate {
+            background-color: variables.$color-almost-black;
+            padding-block: 146px;
+            .calculate-inner {
+                display: flex;
+                align-items: center;
+                column-gap: 36px;
+                .calculate-body {
+                    flex-grow: 1;
+                    max-width: 627px;
+                    .calculate-title {
+                        &:not(:last-child) {
+                            margin-bottom: 16px;
+                        }
+                    }
+                    .calculete-description {
+                        max-width: 386px;
+                        &:not(:last-child) {
+                            margin-bottom: 30px;
+                        }
+                    }
+                    .calculate-form {
+                        .calculate-form-body {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 18px 30px;
+                            &:not(:last-child) {
+                                margin-bottom: 26px;
+                            }
+                            .wide {
+                                grid-column: -1 / 1;
+                            }
+                        }
+                        .calculate-form-button {
+                            margin-bottom: 20px;
+                        }
+                        #output {
+                            color: variables.$color-white;
+                            line-height: 1.75;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+                .calculate-table-wrapper {
+                    position: relative;
+                    width: 100%;
+                    max-width: 610px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &::before {
+                        content: "";
+                        //This is a classic combo for centering an absolutely positioned element along both axes relative to its parent.
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        translate: -50% -50%;
+                        //Dies ist eine klassische Kombination zum Zentrieren eines absolut positionierten Elements entlang beider Achsen relativ zu seinem Elternteil.
+                        width: 100%;
+                        aspect-ratio: 1;
+                        background-color: variables.$color-black;
+                        @extend %border-radius-round;
+                    }
+                    .calculate-table {
+                        position: relative;
+                        border-collapse: collapse;
+                        td,
+                        th {
+                            padding-right: 30px;
+                            &:not(:last-child) {
+                                border-right: 1px solid variables.$color-light-gray;
+                            }
+                            &:not(:first-child) {
+                                padding-left: 30px;
+                            }
+                        }
+
+                        thead {
+                            tr {
+                                th {
+                                    padding-block: 20px;
+                                    text-align: left;
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.8px;
+                                    color: variables.$color-white;
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                &:last-child {
+                                    td {
+                                        &:first-child {
+                                            position: relative;
+                                            &::after {
+                                                content: "";
+                                                position: absolute;
+                                                bottom: 0;
+                                                right: 0;
+                                                width: 65%;
+                                                height: 1px;
+                                                background-color: variables.$color-light-gray;
+                                            }
+                                        }
+                                    }
+                                }
+                                td {
+                                    border-top: 1px solid variables.$color-light-gray;
+                                    padding-block: 14px;
+                                    font-weight: 300;
+                                    letter-spacing: 0.8px;
+                                }
+                            }
+                        }
+                        tfoot {
+                            color: variables.$color-white;
+                            tr {
+                                td {
+                                    padding-top: 33px;
+                                    padding-bottom: 0;
+                                    font-weight: 300;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1024px) {
+    body {
+        main {
+            .calculate {
+                padding-block: 100px;
+                .calculate-inner {
+                    .calculate-body {
+                        .calculate-form {
+                            .calculate-form-body {
+                                grid-template-columns: 1fr;
+                            }
+                            .calculate-form-button {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    body {
+        main {
+            .calculate {
+                padding-block: 60px;
+                .calculate-inner {
+                    column-gap: 20px;
+                    flex-direction: column;
+                    row-gap: 30px;
+                    .calculate-table-wrapper {
+                        &::before {
+                            display: none;
+                        }
+                        .calculate-table {
+                            td,
+                            th {
+                                padding-block: 10px;
+                            }
+
+                            tfoot {
+                                tr {
+                                    td {
+                                        padding-top: 25px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    body {
+        main {
+            .calculate {
+                .calculate-inner {
+                    .calculate-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        .calculete-description {
+                            text-align: center;
+                        }
+                        .calculate-form {
+                            #output {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

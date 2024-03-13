@@ -1,0 +1,82 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1024px) {
+    body {
+        .footer {
+            .footer-main {
+                padding-top: 80px;
+                padding-bottom: 50px;
+
+                .footer-main-inner {
+                    .footer-header {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 30px;
+                    }
+                    .footer-body {
+                        grid-template-columns: repeat(2, 1fr);
+                        row-gap: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        .footer {
+            .footer-main {
+                padding-top: 50px;
+
+                .footer-main-inner {
+                    .footer-header {
+                        text-align: center;
+
+                        &:not(:last-child) {
+                            margin-bottom: 30px;
+                        }
+
+                        .footer-logo {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .footer-description {
+                            text-align: center;
+                        }
+                    }
+                    .footer-body {
+                        grid-template-columns: 1fr;
+                        justify-content: center;
+                        align-items: center;
+                        .footer-column {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .footer-about {
+                                max-width: 50ch;
+                                text-align: center;
+                            }
+                            .footer-schedule {
+                                text-align: center;
+                                &:not(:last-child) {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .footer-extra {
+                text-align: center;
+                .footer-extra-inner {
+                    .footer-copyright {
+                    }
+                }
+            }
+        }
+    }
+}

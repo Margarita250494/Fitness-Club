@@ -1,0 +1,59 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1024px) {
+    body {
+        main {
+            .text-slider {
+                padding-inline: 20px;
+                .slider {
+                    row-gap: 15px;
+                    .text-container {
+                        .text {
+                            .text-info {
+                                margin-bottom: 5px;
+                                &::before {
+                                    margin-right: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        main {
+            .text-slider {
+                .slider {
+                    .text-container {
+                        padding: 36px 30px;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 490px) {
+    body {
+        main {
+            .text-slider {
+                .slider {
+                    .text-container {
+                        .text {
+                            .text-info {
+                                margin-bottom: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

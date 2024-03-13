@@ -1,0 +1,103 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .text-slider {
+            min-height: calc(100vh - variables.$header-height);
+            padding: 36px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            color: variables.$color-white;
+            background-color: variables.$color-almost-black;
+            position: relative;
+            overflow: hidden;
+            width: 100dvw;
+            .slider {
+                text-transform: uppercase;
+                overflow: hidden;
+                width: 90vw;
+                .text-container {
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    flex-direction: row;
+                    align-content: space-between;
+                    align-items: end;
+                    height: 90%;
+                    padding: 36px 70px;
+                    transition: 0.4s ease-in-out;
+                    .text {
+                        width: 100dvw;
+                        .text-info {
+                            display: flex;
+                            align-items: end;
+                            //px in vw
+                            //font-size: 1.56vw;
+                            font-size: clamp(16px, 1.56vw, 30px);
+                            line-height: 1.27;
+                            font-weight: 700;
+                            &::before {
+                                content: "";
+                                //px in vw
+                                width: clamp(60px, 10.1vw, 194px);
+                                aspect-ratio: 1;
+                                background: url("/img/icons/h1-rev-icon-1.png.svg") center/contain no-repeat;
+                                margin-right: 30px;
+                            }
+                        }
+                        .tetxt-title {
+                            //px in vw : font-size/width model * 100 // 360/1920*100
+                            //font-size: 18.75vw;
+                            font-size: min(18.75vw, 360px);
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+            .pagination {
+                .pagination-list {
+                    display: flex;
+                    justify-content: center;
+                    column-gap: 12px;
+                    .pagination-item {
+                        display: flex;
+                        .pagination-button {
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 7px;
+                            background-color: transparent;
+                            border: none;
+
+                            &::after {
+                                content: "";
+                                width: 10px;
+                                aspect-ratio: 1;
+                                border: variables.$border;
+                                @extend %border-radius-round;
+                                transition-duration: variables.$transition-duration;
+                            }
+
+                            &:not(.active) {
+                                &:hover {
+                                    &::after {
+                                        border-color: variables.$color-light-gray;
+                                    }
+                                }
+                            }
+                        }
+                        .active {
+                            &::after {
+                                background-color: variables.$color-white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

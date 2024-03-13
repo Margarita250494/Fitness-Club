@@ -1,0 +1,129 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    .footer {
+        .footer-main {
+            padding-top: 140px;
+            padding-bottom: 160px;
+
+            .footer-main-inner {
+                .footer-header {
+                    &:not(:last-child) {
+                        margin-bottom: 60px;
+                    }
+                    display: grid;
+                    column-gap: 62px;
+                    grid-template-columns: 20.77% auto;
+                    .footer-logo {
+                        .footer-logo-img {
+                            height: auto;
+                        }
+                    }
+                    .footer-description {
+                        text-align: left;
+                        a {
+                            color: variables.$color-light-gray;
+                        }
+                    }
+                }
+                .footer-body {
+                    display: grid;
+                    column-gap: 62px;
+                    grid-template-columns: 20.77% repeat(3, 1fr);
+                    .footer-column {
+                        .footer-column-title {
+                            font-size: clamp(18px, 1.15vw, 22px);
+                            &:not(:last-child) {
+                                margin-bottom: 15px;
+                            }
+                        }
+                        .has-arrow {
+                            &::after {
+                                content: "";
+                                height: 0.74em;
+                                aspect-ratio: 1;
+                                display: inline-block;
+                                background: url("/img/icons/h1-rev-icon-1.png.svg") center/contain no-repeat;
+                                scale: -1 1;
+                                margin-left: 0.5em;
+                            }
+                        }
+                        .footer-about {
+                            font-weight: 300;
+                            color: variables.$color-white;
+                        }
+                        .footer-schedule {
+                            font-weight: 300;
+                            color: variables.$color-white;
+                            &:not(:last-child) {
+                                margin-bottom: 13px;
+                            }
+                        }
+                        .footer-address {
+                            font-weight: 300;
+                            color: variables.$color-white;
+                            font-style: normal;
+                            &:not(:last-child) {
+                                margin-bottom: 35px;
+                            }
+                        }
+                        .footer-contacts {
+                            font-weight: 300;
+                        }
+                        .footer-subscribe {
+                            position: relative;
+                            &:not(:last-child) {
+                                margin-bottom: 50px;
+                            }
+                            .footer-subscribe-input {
+                                padding-right: 70px;
+                                font-weight: 300;
+                            }
+
+                            .footer-subscribe-button {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                height: 100%;
+                                aspect-ratio: 1;
+                                background-color: transparent;
+                                @extend %border-radius-round;
+                                border: variables.$border;
+                                background: url(/img/icons/svg.qodef-svg--button-arrow.svg) center / 70% no-repeat;
+                                transition-duration: variables.$transition-duration;
+
+                                &:hover {
+                                    background-color: variables.$color-light-gray;
+                                }
+                            }
+                        }
+                        .footer-soc1als {
+                            .footer-soc1als-list {
+                                display: flex;
+                                column-gap: 18px;
+                                .footer-soc1als-item {
+                                    .footer-socails-link {
+                                        display: flex;
+                                        width: 23px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-extra {
+            padding-block: 15px;
+            background-color: variables.$color-almost-black;
+            .footer-extra-inner {
+                .footer-copyright {
+                    font-size: 14px;
+                    font-weight: 300;
+                    color: variables.$color-white;
+                }
+            }
+        }
+    }
+}

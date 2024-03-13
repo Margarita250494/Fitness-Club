@@ -1,0 +1,73 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1919px) {
+    body {
+        main {
+            .motivation {
+                .motivation-list {
+                    .motivation-item {
+                        .motivation-card {
+                            .motivation-card-img {
+                                margin-block: -20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    body {
+        main {
+            .motivation {
+                .motivation-list {
+                    .motivation-item {
+                        .motivation-card {
+                            padding-block: 50px;
+
+                            .motivation-card-img {
+                                max-width: 40%;
+                                height: auto;
+                                margin-block: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    body {
+        main {
+            .motivation {
+                .motivation-list {
+                    .motivation-item {
+                        &:nth-child(even) {
+                            .motivation-card {
+                                flex-direction: column-reverse;
+                            }
+                        }
+                        .motivation-card {
+                            flex-direction: column-reverse;
+                            padding-block: 30px;
+                            row-gap: 30px;
+                            .motivation-card-body {
+                                .motivation-card-description {
+                                    &:not(:last-child) {
+                                        margin-bottom: 20px;
+                                    }
+                                }
+                            }
+                            .motivation-card-img {
+                                max-width: 60%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

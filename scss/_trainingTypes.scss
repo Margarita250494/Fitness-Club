@@ -1,0 +1,34 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .training-types {
+            position: relative;
+            background-color: variables.$color-black;
+            padding-top: 70px;
+            padding-bottom: 120px;
+            .training-types-list {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 60px;
+                .training-types-item {
+                    $training-types-item-bg-icon-size: 80px;
+                    padding-top: $training-types-item-bg-icon-size;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    row-gap: 32px;
+                    background-image: url("/img/training-types/arrow.svg");
+                    background-position: 100% 0;
+                    background-size: $training-types-item-bg-icon-size;
+                    background-repeat: no-repeat;
+
+                    .trainings-types-item-title {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

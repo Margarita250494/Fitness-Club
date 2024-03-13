@@ -1,0 +1,35 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1280px) {
+    body {
+        main {
+            .training-types {
+                .training-types-list {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    body {
+        main {
+            .training-types {
+                .training-types-list {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 30px;
+                    .training-types-item {
+                        $training-types-item-bg-icon-size: 50px;
+                        padding-top: $training-types-item-bg-icon-size;
+                        background-size: $training-types-item-bg-icon-size;
+                        row-gap: 10px;
+                        .training-types-img {
+                            max-width: 120px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

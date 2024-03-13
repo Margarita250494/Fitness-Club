@@ -1,0 +1,36 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .location {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            .location-map-img {
+                height: auto;
+            }
+            .location-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 80px 15px;
+                .location-title {
+                    &:not(:last-child) {
+                        margin-bottom: 14px;
+                    }
+                }
+                .location-description {
+                    max-width: 490px;
+                    text-align: center;
+                    font-weight: 300;
+                    letter-spacing: 0.8px;
+                    line-height: 1.75;
+                    &:not(:last-child) {
+                        margin-bottom: 37px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+//extends
+
+//fonts
+
+%font-bold-normal{
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+%font-light-normal{
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+%font-bold-alternate{
+    font-family: "Yantramanav", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+%border-radius-round{
+    border-radius: 50%;
+}
+
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}

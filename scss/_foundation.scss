@@ -1,0 +1,246 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    background-color: variables.$color-black;
+    color: variables.$color-light-gray;
+    font-size: 16px;
+    line-height: 1.75;
+}
+body,
+button {
+    @extend %font-bold-normal;
+}
+
+.container {
+    max-width: calc(variables.$container-width + variables.$container-padding-x * 2);
+    //definiert eine maximale Breite für ein Element,
+    //1300px ist der feste Teil der Breite, der 1300 Pixel beträgt. 15px * 2 ist der variable Teil der Breite, der durch Multiplikation von 15px mit 2 berechnet wird. Das Ergebnis ist 30px.
+    //Daher ergibt die Berechnung insgesamt 1300px + 30px, was 1330px ergibt. Das Element hat also eine maximale Breite von 1330px. Die zusätzlichen 15px * 2 werden als Polsterung (Padding) oder Rand (Margin) berücksichtigt.
+    margin-inline: auto;
+    //The margin-inline property specifies the margin at the start and end in the inline direction, and is a shorthand property for the following properties:: margin-inline-start and margin-inline-end
+    padding-inline: variables.$container-padding-x;
+    //An element's padding-inline is the space from its border to its content in the inline direction, and it is a shorthand property for the following properties: padding-inline-start and padding-inline-end
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: variables.$color-white;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: variables.$transition-duration;
+}
+svg * {
+    transition-duration: variables.$transition-duration;
+    transition-property: fill, stroke;
+}
+
+a {
+    color: variables.$color-white;
+    &:hover {
+        color: variables.$color-light-gray;
+    }
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.title-medium {
+    font-size: clamp(20px, 2.08vw, 40px);
+    line-height: 1.3;
+}
+.title-big {
+    font-size: clamp(24px, 3.13vw, 60px);
+}
+
+p {
+    margin-block: 0;
+    &:not(:last-child),
+    &:not([class]) {
+        margin-bottom: 24px;
+    }
+}
+
+.button {
+    display: inline-flex;
+    height: 38px;
+    align-items: center;
+    padding-inline: 26px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background-color: variables.$color-white;
+    border: none;
+    border-radius: variables.$border-radius;
+    //To prevent the text inside the button from wrapping onto multiple lines.
+    white-space: nowrap;
+    //Um zu verhindern, dass der Text innerhalb der Schaltfläche auf verschiedene Zeilen umbrochen wird.
+    &:hover {
+        background-color: variables.$color-light-gray;
+    }
+}
+
+.backdrop-title {
+    position: relative;
+    z-index: 2;
+    &::before {
+        content: "";
+        position: absolute;
+        right: calc(100% + 8px);
+        display: block;
+        width: 26px;
+        aspect-ratio: 1;
+        background: url("/img/icons/plus.svg") center/contain no-repeat;
+    }
+    &::after {
+        content: attr(data-title);
+        position: absolute;
+        z-index: -1;
+        top: -0.3em;
+        left: -0.6em;
+        font-size: 2.8em;
+        line-height: 1;
+        @extend %font-bold-alternate;
+        color: transparent;
+        -webkit-text-stroke: 1px variables.$color-dark-gray;
+        text-stroke: 1px variables.$color-dark-gray;
+    }
+}
+
+input {
+    height: variables.$input-height;
+    padding-inline: 25px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid variables.$color-light-gray;
+    border-radius: variables.$border-radius;
+    color: variables.$color-white;
+    transition-duration: variables.$transition-duration;
+    &::placeholder {
+        color: variables.$color-light-gray;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    &:focus {
+        color: variables.$color-black;
+        background-color: variables.$color-light-gray;
+        outline: none;
+    }
+    &:hover {
+        border-color: variables.$color-white;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+svg * [fill] {
+    fill: currentColor;
+}
+svg * [stroke] {
+    fill: currentColor;
+}
+.calculate-form-input {
+    height: variables.$input-height;
+    padding-inline: 25px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid variables.$color-light-gray;
+    border-radius: variables.$border-radius;
+    color: variables.$color-white;
+    transition-duration: variables.$transition-duration;
+    font-weight: 300;
+    &::placeholder,
+    &:invalid {
+        color: variables.$color-light-gray;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    &:focus {
+        color: variables.$color-black;
+        background-color: variables.$color-light-gray;
+        outline: none;
+    }
+    &:hover {
+        border-color: variables.$color-white;
+    }
+}
+
+.transparent {
+    position: relative;
+    height: variables.$input-height;
+    padding: 14px 80px 14px 31px;
+    background-color: transparent;
+    border: variables.$border;
+    border-radius: variables.$border-radius;
+    font-size: 13px;
+    line-height: 1.3;
+    color: variables.$color-white;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        aspect-ratio: 1;
+        background: url("/img/icons/svg.qodef-svg--button-arrow.svg") center/70% no-repeat;
+        border: variables.$border;
+        @extend %border-radius-round;
+        right: 0;
+    }
+    transition-duration: variables.$transition-duration;
+    &:hover {
+        color: variables.$color-black;
+        background-color: variables.$color-light-gray;
+    }
+}
+
+.centered {
+    &::after {
+        left: 50%;
+        translate: -50% 0;
+        top: -0.25em;
+    }
+}
+
+.container-wide {
+    max-width: 1920px;
+    margin-inline: auto;
+}
+
+.section-description {
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 1.65;
+    color: variables.$color-white;
+    text-align: center;
+}

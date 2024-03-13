@@ -1,0 +1,31 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+@media screen and (max-width: 1024px) {
+    body {
+        main {
+            .location {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        main {
+            .location {
+                .location-body {
+                    padding-block: 40px;
+
+                    .location-description {
+                        &:not(:last-child) {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

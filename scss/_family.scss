@@ -1,0 +1,29 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    main {
+        .family {
+            background-color: variables.$color-almost-black;
+            .family-header {
+                padding-top: 132px;
+                padding-bottom: 62px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                row-gap: 7px;
+            }
+            .family-body {
+                display: flex;
+                justify-content: center;
+                gap: 26px;
+                scroll-snap-type: mandatory;
+                overflow-x: scroll;
+                .family-img {
+                    scroll-snap-align: start;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,104 @@
+@use "variables";
+@use "mixinsAndExtends";
+
+body {
+    .header {
+        padding-inline: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        min-height: variables.$header-height;
+        background-color: variables.$color-almost-black;
+        .header-logo {
+            flex-shrink: 0;
+            .header-logo-img {
+                width: 135px;
+                height: 25px;
+            }
+        }
+        .header-menu {
+            display: flex;
+            flex-flow: row;
+            column-gap: 50px;
+            .header-menu-list {
+                .header-menu-item {
+                    .header-menu-link {
+                        //To make the button hit area larger.
+                        display: inline-flex;
+                        height: variables.$header-height;
+                        //Um den Bereich für den Tastendruck zu vergrößern.
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        font-size: 12px;
+                        letter-spacing: 1.2px;
+                        align-items: center;
+                        column-gap: 7px;
+                    }
+                    .is-current {
+                        &::after {
+                            content: "";
+                            width: 5px;
+                            aspect-ratio: 1;
+                            background-color: currentColor;
+                            @extend %border-radius-round;
+                        }
+                    }
+                }
+            }
+        }
+        .header-actions {
+            display: flex;
+            column-gap: 40px;
+            align-items: center;
+            .button {
+                display: inline-flex;
+                height: 38px;
+                align-items: center;
+                padding-inline: 26px;
+                font-size: 12px;
+                line-height: 2;
+                letter-spacing: 1.2px;
+                text-transform: uppercase;
+                background-color: variables.$color-white;
+                border: none;
+                border-radius: variables.$border-radius;
+                //To prevent the text inside the button from wrapping onto multiple lines.
+                white-space: nowrap;
+                //Um zu verhindern, dass der Text innerhalb der Schaltfläche auf verschiedene Zeilen umbrochen wird.
+                &:hover {
+                    background-color: variables.$color-light-gray;
+                }
+            }
+            .header-burger-button {
+                display: none;
+                position: relative;
+                //display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                row-gap: 4px;
+                width: 40px;
+                aspect-ratio: 1;
+                color: variables.$color-white;
+                background-color: transparent;
+                border: variables.$border;
+                @extend %border-radius-round;
+                padding-left: 8px;
+                transition: all variables.$transition-duration ease-in-out;
+                .header-burger-button-line {
+                    width: 6px;
+                    height: 1px;
+                    background-color: currentColor;
+                    //For rendering the left part of the button, we used a span, for rendering the right part, we are using box-shadow.
+                    box-shadow: 16px 0 0 currentColor;
+                    //Für die Darstellung des linken Teils der Schaltfläche haben wir ein span verwendet, für die Darstellung des rechten Teils verwenden wir box-shadow.
+                }
+                &:hover {
+                    color: variables.$color-light-gray;
+                    border-color: currentColor;
+                }
+            }
+        }
+    }
+}
